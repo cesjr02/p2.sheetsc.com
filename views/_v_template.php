@@ -10,7 +10,32 @@
 	
 </head>
 
-<body>	
+<body>
+
+<header>
+	<nav>
+	
+			<a href='/'>Home</a>
+			
+			<!-- Menu for logged in users -->
+			<?php if($user): ?>
+			
+			<a href='/users/logout'>Logout</a>
+			<a href='/users/profile'>Profile</a>
+			
+			<!-- Menu for users who are not logged in -->
+			<?php else: ?>
+			
+			<a href='/users/signup'>Sign Up</a>
+			<a href='/users/login'>Login</a>
+			
+			<?php endif; ?>
+		</ul>
+	</nav>
+</header>
+
+
+	
 
 	<?php if(isset($content)) echo $content; ?>
 
