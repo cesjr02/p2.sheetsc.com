@@ -15,19 +15,22 @@
 <header>
 	<nav>
 	
-			<a href='/'>Home</a>
+		
 			
 			<!-- Menu for logged in users -->
 			<?php if($user): ?>
 			
-			<a href='/users/logout'>Logout</a>
-			<a href='/users/profile'>Profile</a>
+			<a href='/posts'>Home</a>
+			<a href='/posts/users'>Follow</a>
+			<a href='/users/profile'>Profile</a>			
+			<a href='/users/logout'>Sign out</a>
 			
 			<!-- Menu for users who are not logged in -->
 			<?php else: ?>
 			
-			<a href='/users/signup'>Sign Up</a>
-			<a href='/users/login'>Login</a>
+			<a href='/'>Home</a>
+			<a href='/users/signup'>Sign up</a>
+			<a href='/users/login'>Sign in</a>
 			
 			<?php endif; ?>
 		</ul>

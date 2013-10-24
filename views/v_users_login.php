@@ -1,4 +1,4 @@
-<h2>Login</h2>
+<h2>Sign in</h2>
 
 <form method='POST' action='/users/p_login'>
 
@@ -17,6 +17,6 @@
 		<br>
 	<?php endif; ?>
 	
-	<input type='submit' value='Login'>
+	<input type='submit' value='Sign in'>
 
 </form>

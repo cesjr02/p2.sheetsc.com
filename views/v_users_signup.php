@@ -1,4 +1,4 @@
-<h2>Sign Up</h2>
+<h2>New to YapperBox? Sign up</h2>
 
 <form method='POST' action='/users/p_signup'>
 
