@@ -1,4 +1,5 @@
-<?php
+<?php 
+
 class users_controller extends base_controller {
 
     public function __construct() {
@@ -15,7 +16,7 @@ class users_controller extends base_controller {
         $this->template->content = View::instance('v_users_signup');
         	
         # Set page title
-		$this->template->title = "Sign Up";
+		$this->template->title = "Sign up";
 			
 		# Render view
 		echo $this->template;
@@ -44,7 +45,8 @@ class users_controller extends base_controller {
 	    $user_id = DB::instance(DB_NAME)->insert('users', $_POST);
 	    
 	    # Signup confirm
-	    echo 'You have signed up';
+	    Router::redirect("/users/login");
+	    // echo 'You have signed up';
 	    
     }
 
@@ -94,7 +96,7 @@ class users_controller extends base_controller {
 		    setcookie("token", $token, strtotime('+1 year'), '/');
 		    
 		    # Token found, login successful		
-		    Router::redirect("/users/profile");
+		    Router::redirect("/posts");
 		    // echo "You are logged in!";
 	    }
 	    
@@ -131,7 +133,7 @@ class users_controller extends base_controller {
 		
 		# Setup view
 		$this->template->content = View::instance('v_users_profile');
-		$this->template->title   = "Profile of".$this->user->first_name;
+		$this->template->title   = "Profile of ".$this->user->first_name;
 		
 		# Render view
 		echo $this->template;
