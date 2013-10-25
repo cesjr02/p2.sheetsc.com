@@ -76,7 +76,7 @@ class posts_controller extends base_controller {
 	    
 	    # Set up the View
 	    $this->template->content = View::instance("v_posts_users");
-	    $this->template->title   = "Follow";
+	    $this->template->title   = "Connect";
 	    
 	    # Build the query to get all users
 	    $q = "SELECT *
