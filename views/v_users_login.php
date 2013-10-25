@@ -3,11 +3,11 @@
 <form method='POST' action='/users/p_login'>
 
 	Email<br>
-	<input type='text' name='email'>
+	<input type='text' name='email' class='field'>
 	<br>
 	
 	Password<br>
-	<input type='password' name='password'>
+	<input type='password' name='password' class='field'>
 	<br>
 	
 	<?php if(isset($error)): ?>
@@ -17,6 +17,6 @@
 		<br>
 	<?php endif; ?>
 	
-	<input type='submit' value='Sign in'>
+	<input type='submit' value='SIGN IN' class='button'>
 
 </form>
