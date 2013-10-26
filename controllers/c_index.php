@@ -9,14 +9,15 @@ class index_controller extends base_controller {
 	} 
 		
 /*-------------------------------------------------------------------------------------------------
-	 Accessed via http://localhost/index/index/               -------------------------------------------------------------------------------------------------*/
+	 accessed via http://localhost/index/index/               -------------------------------------------------------------------------------------------------*/
 	public function index() {
 		
-		# Any method that loads a view will commonly start with this
-		# First, set the content of the template with a view file
+		# any method that loads a view will commonly start with this
+		# first, set the content of the template with a view file
 			$this->template->content = View::instance('v_index_index');
+			$this->template->content->moreContent = View::instance('v_users_login'); 
 			
-		# Now set the <title> tag
+		# now set the <title> tag
 			$this->template->title = "YapperBox";
 	
 		# CSS/JS includes
@@ -28,7 +29,7 @@ class index_controller extends base_controller {
 	    	$this->template->client_files_body = Utils::load_client_files($client_files_body);   
 	    	*/
 	      					     		
-		# Render the view
+		# render the view
 			echo $this->template;
 
 	} # end of method
