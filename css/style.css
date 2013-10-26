@@ -2,6 +2,7 @@ html {
     position: relative;
     min-height: 100%;
 }
+
 body {
     margin: 0 0 40px; /* bottom = footer height */
     font-family: 'Lato', sans-serif;
@@ -84,12 +85,13 @@ a {
 .content {
 	width: 540px;
 	float: left;
-	height: auto;
+	margin-bottom: 50px;
 }
 
-.contentFeed {
-	width: 620px;
-	padding-left: 160px;
+.contentMain {
+	width: 540px;
+	float: left;
+	margin-bottom: 50px;
 }
 
 aside {
@@ -103,25 +105,19 @@ article {
 	margin-top: 25px;
 }
 
-/* Set the fixed height of the footer */
-push, footer {
-    height: 40px;
-}
-
 footer {
 	position: absolute;
     left: 0;
     bottom: 0;
     height: 40px;
     width: 100%;
-
-
     background-color: #4f28a8;
     color: #fff;
     text-align: right;
     clear: both;
 
 }
+
 
 footer p {
 	font-family: sans-serif;
@@ -288,6 +284,7 @@ textarea:required:valid {
 	width:100px;
 	text-decoration:none;
 	text-align: center;
+	margin-bottom: 50px;
 }
 .button:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
