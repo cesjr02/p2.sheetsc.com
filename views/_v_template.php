@@ -27,7 +27,8 @@
 				<!-- Menu for logged in users -->
 				<?php if($user): ?>
 						
-				<a href='/posts'>Home</a>
+				<a href='/posts'>Yapper Feed</a>
+				<a href='/posts/add'>Yap</a>
 				<a href='/posts/users'>Connect</a>
 				<a href='/users/profile'>Profile</a>			
 				<a href='/users/logout'>Sign out</a>
@@ -36,9 +37,8 @@
 				<!-- Menu for users who are not logged in -->
 				<?php else: ?>
 						
-				<a href='/'>Home</a>
+				<a href='/'>Home/Login</a>
 				<a href='/users/signup'>Sign up</a>
-				<a href='/users/login'>Sign in</a>
 						
 				<?php endif; ?>
 			</nav>
@@ -46,20 +46,15 @@
 	</div> <!-- End of headerContent -->
 </header>
 
-<div id="wrapper">
-	
-	<section class="content">
+	<div id="wrapper">
+
 		<?php if(isset($content)) echo $content; ?>
 	
 		<?php if(isset($client_files_body)) echo $client_files_body; ?>
-	</section>
 
-<aside>
-</aside>
+	</div> <!-- End of wrapper -->
 
-</div> <!-- End of wrapper -->
 
-</body>
 
 
 <!--
@@ -67,4 +62,7 @@
 		<p>© 2013 YapperBox</p>
 </footer>
 -->
+
+</body>
+
 </html>
