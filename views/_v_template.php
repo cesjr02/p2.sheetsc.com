@@ -46,22 +46,19 @@
 	</div> <!-- End of headerContent -->
 </header>
 
-	<div id="wrapper">
+<div id="wrapper">
 
-		<?php if(isset($content)) echo $content; ?>
+	<?php if(isset($content)) echo $content; ?>
 	
-		<?php if(isset($client_files_body)) echo $client_files_body; ?>
+	<?php if(isset($client_files_body)) echo $client_files_body; ?>
 
-	</div> <!-- End of wrapper -->
-
-
+</div> <!-- End of wrapper -->
 
 
-<!--
-<footer>
-		<p>© 2013 YapperBox</p>
+<footer class='footerStyle'>
+	<p>2013 YapperBox - Developed and Designed by CJ Sheets</p>
 </footer>
--->
+
 
 </body>
 

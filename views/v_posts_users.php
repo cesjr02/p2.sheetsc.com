@@ -1,19 +1,31 @@
-<h1>Users to follow:</h1>
+<section class='contentFollow'>
 
-<? foreach($users as $user): ?>
+<h1>Follow some Yappers</h1>
 
-	<!-- Print this user's name -->
-	<h2><?=$user['first_name']?> <?=$user['last_name']?></h2>
-	
-	<!-- If there exists a connection with this user, show a unfollow link -->
-	<? if(isset($connections[$user['user_id']])): ?>
-		<a href='/posts/unfollow/<?=$user['user_id']?>'><img src='/images/unfollow.png' width='125px' 		height='36px' align='left' alt='unfollow'></a>
+<p> 
+Choose to follow or unfollow from a list of users below. 
+</p>
+
+<? foreach($users as $yapper): ?>
+
+	<!-- you can't unfollow yourself so your button isn't shown -->
+    <?php if ($user->user_id != $yapper['user_id']) : ?>
+
+		<!-- Print this user's name -->
+		<h2><?=$yapper['first_name']?> <?=$yapper['last_name']?></h2>
 		
-	<!-- Otherwise, show the follow link -->
-	<? else: ?>
-		<a href='/posts/follow/<?=$user['user_id']?>'><img src='/images/follow.png' width='125px' 			height='36px' align='left' alt='follow'></a>
-	<? endif; ?>
+		<!-- If there exists a connection with this user, show a unfollow link -->
+		<? if(isset($connections[$yapper['user_id']])): ?>
+			<a href='/posts/unfollow/<?=$yapper['user_id']?>'><img src='/images/unfollow.png' width='101px' height='29px' align='left' alt='unfollow'></a>
+			
+		<!-- Otherwise, show the follow link -->
+		<? else: ?>
+			<a href='/posts/follow/<?=$yapper['user_id']?>'><img src='/images/follow.png' width='101px' height='29px' align='left' alt='follow'></a>
+		<? endif; ?>
+		<br>
 	
-	<br>
+	<?php endif; ?>
 
 <? endforeach; ?>
+
+</section>

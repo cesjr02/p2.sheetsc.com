@@ -1,6 +1,9 @@
-<section class="contentFeed">
-
+<section class='content'>
 <h1>Yapper Feed</h1>
+
+<?php if (count($posts) == 0) :?>
+        <p>Hey, you haven't followed anyone yet!<br>Why not <a href="/posts/users">follow some Yappers</a> now?</p>
+<?php endif; ?>
 
 <?php foreach($posts as $post): ?>
 
@@ -17,5 +20,4 @@
 </article>
 
 <?php endforeach; ?>
-
 </section>
