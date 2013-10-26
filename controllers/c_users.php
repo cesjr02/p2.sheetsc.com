@@ -56,7 +56,6 @@ class users_controller extends base_controller {
         	if($value == "") {
             	$error = true;
             	$this->template->content->error = 'All fields are required.';
-                echo $this->template;
             }
 		} 
 		
