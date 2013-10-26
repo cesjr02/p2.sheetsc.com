@@ -9,18 +9,26 @@ class posts_controller extends base_controller {
         if(!$this->user) {
             die("Members only. <a href='/users/login'>Login</a>");
         }
-    }
+    } # end of method
+
+/*-------------------------------------------------------------------------------------------------
+	Display new post form              
+-------------------------------------------------------------------------------------------------*/
 
     public function add() {
 
         # Setup view
         $this->template->content = View::instance('v_posts_add');
-        $this->template->title   = "New Post";
+        $this->template->title   = "New Yap";
 
         # Render template
         echo $this->template;
 
-    }
+    } # end of method
+   
+/*-------------------------------------------------------------------------------------------------
+	Process new posts
+-------------------------------------------------------------------------------------------------*/
 
     public function p_add() {
 
@@ -36,9 +44,20 @@ class posts_controller extends base_controller {
         DB::instance(DB_NAME)->insert('posts', $_POST);
 
         # Quick and dirty feedback
-        echo "Your post has been added. <a href='/posts/add'>Add another</a>";
+       //  echo "Your post has been added. <a href='/posts/add'>Add another</a>";
+       
+       # Setup view
+        $this->template->content = View::instance('v_posts_p_add');
+        $this->template->title   = "Yap Added";
+       
+       # Render view
+        echo $this->template;
 
-    }
+    } # end of method
+    
+/*-------------------------------------------------------------------------------------------------
+	View all posts
+-------------------------------------------------------------------------------------------------*/
     
     public function index() {
 	    
@@ -70,13 +89,17 @@ class posts_controller extends base_controller {
 	    # Render the View
 	    echo $this->template;
 	    
-    }
+    } # end of method
+    
+/*-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------*/
     
     public function users() {
 	    
 	    # Set up the View
 	    $this->template->content = View::instance("v_posts_users");
-	    $this->template->title   = "Connect";
+	    $this->template->title   = "Follow Users";
 	    
 	    # Build the query to get all users
 	    $q = "SELECT *
@@ -105,7 +128,11 @@ class posts_controller extends base_controller {
 	    # Render the view
 	    echo $this->template;
 	    
-    }
+    } # end of method
+    
+/*-------------------------------------------------------------------------------------------------
+	Creates a row in the users_users table representing that one user is following another
+-------------------------------------------------------------------------------------------------*/
     
     public function follow($user_id_followed) {
 
@@ -122,18 +149,22 @@ class posts_controller extends base_controller {
     # Send them back
     Router::redirect("/posts/users");
 
-}
+	} # end of method
 
-public function unfollow($user_id_followed) {
+/*-------------------------------------------------------------------------------------------------
+	 Removes the specified row in the users_users table, removing the follow between two users
+-------------------------------------------------------------------------------------------------*/
 
-    # Delete this connection
-    $where_condition = 'WHERE user_id = '.$this->user->user_id.' AND user_id_followed = '.$user_id_followed;
-    DB::instance(DB_NAME)->delete('users_users', $where_condition);
-
-    # Send them back
-    Router::redirect("/posts/users");
-
-}
+	public function unfollow($user_id_followed) {
+	
+	    # Delete this connection
+	    $where_condition = 'WHERE user_id = '.$this->user->user_id.' AND user_id_followed = '.$user_id_followed;
+	    DB::instance(DB_NAME)->delete('users_users', $where_condition);
+	
+	    # Send them back
+	    Router::redirect("/posts/users");
+	
+	} # end of method
     
     
 } # eoc
