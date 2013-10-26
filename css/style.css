@@ -1,8 +1,17 @@
-html, body {
-	font-family: 'Lato', sans-serif;
-	background-color: #f4f4f4;
-	height: 100%;
+html {
+    position: relative;
+    min-height: 100%;
 }
+body {
+    margin: 0 0 40px; /* bottom = footer height */
+    font-family: 'Lato', sans-serif;
+	background-color: #f4f4f4;
+}
+
+
+
+
+
 
 /* ------------MARGIN RESET RULE------------- */
 
@@ -18,15 +27,18 @@ h1 {
 	
 	font-size: 30px;
 	margin-bottom: 15px;
-	margin-top: 25px;
 }
 
 h2 {
 	
 	font-size: 22px;
-	margin-bottom: 15px;
-	margin-top: 25px;
+	margin-bottom: 10px;
 }	
+
+.contentFollow h2 {
+	margin-top: 40px;
+	margin-bottom: 5px;
+}
 
 p {
 	font-family: 'Roboto Slab', serif;
@@ -51,9 +63,8 @@ a {
 /* ------------DIVS & SECTIONS STYLE------------- */
 
 #wrapper {
+	margin: 0 auto;
 	width: 940px;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .mainHeader {
@@ -88,10 +99,39 @@ aside {
 	margin-top: 0px;
 }
 
-footer {
-	height: 40px;
-	
+article {
+	margin-top: 25px;
 }
+
+/* Set the fixed height of the footer */
+push, footer {
+    height: 40px;
+}
+
+footer {
+	position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+
+
+    background-color: #4f28a8;
+    color: #fff;
+    text-align: right;
+    clear: both;
+
+}
+
+footer p {
+	font-family: sans-serif;
+	font-weight: 300;
+	width: 940px;
+	margin: auto;
+	padding-top: 8px;
+	font-size: 12px;
+}
+
 
 
 /* ------------NAVIGATION STYLE------------- */
@@ -103,15 +143,15 @@ nav {
 }
 
 nav a:link {
-text-decoration:none;
+	text-decoration:none;
 }
 
 nav a:visited {
-border-bottom:1px solid white;
+	border-bottom:1px solid white;
 }
 
 nav a:hover {
-border-bottom:1px solid white;
+	border-bottom:1px solid white;
 }
 
 nav a {
@@ -150,6 +190,15 @@ nav a {
 	color: #333;
 	margin-top: 5px;
 	margin-bottom: 10px;
+}
+
+/* Text field focus */
+	.field:focus {
+	border-color: #4f28a8;
+	outline: 0;
+	-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(79,40,168,0.6);
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(79,40,168,0.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(79,40,168,0.6);
 }
 
 /* ------------FORM VALIDATION STYLE------------- */
