@@ -55,7 +55,7 @@
 </div> <!-- End of wrapper -->
 
 
-<footer class='footerStyle'>
+<footer>
 	<p>2013 YapperBox - Developed and Designed by CJ Sheets</p>
 </footer>
 
