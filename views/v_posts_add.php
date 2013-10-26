@@ -1,9 +1,8 @@
 <form method='POST' action='/posts/p_add'>
 
-	<label for='content'>New Post:</label><br>
-	<textarea name='content' id=''content></textarea>
-	
-	<br><br>
-	<input type='submit' value='Yap'>
+	<h2><label for='content'>Yap about something.</label></h2>
+	<textarea name='content' id='content' class='textarea' required></textarea>
+	<br>
+	<input type='submit' class='button 'value='Yap'>
 	
 </form>
