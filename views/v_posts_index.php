@@ -1,3 +1,5 @@
+<section class="contentFeed">
+
 <h1>Yapper Feed</h1>
 
 <?php foreach($posts as $post): ?>
@@ -15,3 +17,5 @@
 </article>
 
 <?php endforeach; ?>
+
+</section>
