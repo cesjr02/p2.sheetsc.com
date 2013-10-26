@@ -1,23 +1,43 @@
-<h2>New to YapperBox? Sign up</h2>
+<section class='content'>
 
-<form method='POST' action='/users/p_signup'>
+	<h2>New to YapperBox?</h2>
+	
+	<p>
+	Use the sign up form on the right to experience all the great features YapperBox has to offer.
+	</p>
 
-	First Name<br>
-	<input type='text' name='first_name' class='field'>
-	<br>
+</section>
+
+
+
+<aside>
+
+	<h2>Sign up</h2>
 	
-	Last Name<br>
-	<input type='text' name='last_name' class='field'>
-	<br>
+	<form method='POST' action='/users/p_signup'>
+		
+		First Name<br>
+	    <input type='text' name='first_name' class='field' value='<?php if(isset($_POST['first_name'])) echo $_POST['first_name']?>'><br>
+	        
+	    Last Name<br>
+	    <input type='text' name='last_name' class='field' value='<?php if(isset($_POST['last_name'])) echo $_POST['last_name']?>'><br>
+	        
+	    Email<br>
+	    <input type='text' name='email' class='field' value='<?php if(isset($_POST['email'])) echo $_POST['email']?>'><br>
 	
-	Email<br>
-	<input type='text' name='email' class='field'>
-	<br>
-	
-	Password<br>
-	<input type='password' name='password' class='field'>
-	<br>
-	
-	<input type='submit' value='SUBMIT' class='button'>
-	
-</form>
+			
+		Password<br>
+		<input type='password' name='password' class='field'>
+		<br>
+				
+		<?php if(isset($error)): ?>
+			<div class='error'>
+				All fields required.
+			</div>						
+		<?php endif; ?>  
+			
+		<input type='submit' value='SUBMIT' class='button'>
+			
+	</form>
+
+</aside>
