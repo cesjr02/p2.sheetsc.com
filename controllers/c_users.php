@@ -109,23 +109,6 @@ class users_controller extends base_controller {
             # Do the insert
             DB::instance(DB_NAME)->insert('users_users', $data);
             
-         
-            
-            
-            // Email a welcome message to the new user
-            $to[]    = Array("name" => $_POST['first_name'], "email" => $_POST['email']);
-            $from    = Array("name" => APP_NAME, "email" => APP_EMAIL);
-            $subject = "Welcome to YapperBox!";              
-                
-            $body = View::instance('v_email_welcome');
-                
-            // Send email
-            Email::send($to, $from, $subject, $body, true, '');
-            
-            
-            
-            
-            
             # log user in using the token we generated
             setcookie("token", $_POST['token'], strtotime('+1 year'), '/');
 
