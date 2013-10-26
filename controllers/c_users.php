@@ -9,10 +9,14 @@ class users_controller extends base_controller {
     public function index() {
         echo "This is the index page";
     }
+    
+/*-------------------------------------------------------------------------------------------------
+	Display a form so users can sign up               
+-------------------------------------------------------------------------------------------------*/
 
     public function signup() {
-        
-        # Setup view
+    
+    	# Setup view
         $this->template->content = View::instance('v_users_signup');
         	
         # Set page title
@@ -20,11 +24,64 @@ class users_controller extends base_controller {
 			
 		# Render view
 		echo $this->template;
-        
-    }
+
+    } # end of method
     
-    public function p_signup() {
+/*-------------------------------------------------------------------------------------------------
+	Process the sign up form    
+-------------------------------------------------------------------------------------------------*/
+    
+    public function p_signup() { 
+    
+		# Set up view
+        $this->template->content = View::instance('v_users_signup');
+                
+        # Innocent until proven guilty
+        $error = false;
+                
+        # Initiate error
+        $this->template->content->error = '<br>';
+                
+        # If we have no post data just display the View with signup form
+		if(!$_POST) {
+        	echo $this->template;
+            return;
+        }
+                
+		# Otherwise...
+        # Loop through the POST data
+        foreach($_POST as $field_name => $value) {
+                        
+        	# If a field was blank, add a message to the error View variable
+        	if($value == "") {
+            	$error = true;
+            }
+		}        
+                        
+        # Passed
+        if(!$error) {
+			# More data we want stored with the user
+			$_POST['created']  = Time::now();
+			$_POST['modified'] = Time::now();
+			    
+			# Encrypt the password
+			$_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
+			    
+			# Create an encrypted token via their email address and a random string
+			$_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
+			    
+			# Insert this into the database
+			$user_id = DB::instance(DB_NAME)->insert('users', $_POST);
+			    
+			# Signup confirm
+			Router::redirect("/users/login");
+        }
+        	else {
+            	echo $this->template;
+            }
+    
  
+ /* 
 	    # More data we want stored with the user
 	    $_POST['created']  = Time::now();
 	    $_POST['modified'] = Time::now();
@@ -41,8 +98,14 @@ class users_controller extends base_controller {
 	    # Signup confirm
 	    Router::redirect("/users/login");
 	    // echo 'You have signed up';
+*/
+
 	    
-    }
+    } # end of method
+
+/*-------------------------------------------------------------------------------------------------
+	Display a form so users can login
+-------------------------------------------------------------------------------------------------*/
 
     public function login($error = NULL) {
         
@@ -58,7 +121,11 @@ class users_controller extends base_controller {
         # Render view
         echo $this->template;
    
-    }
+    } # end of method
+    
+/*-------------------------------------------------------------------------------------------------
+	Process login form
+-------------------------------------------------------------------------------------------------*/
     
     public function p_login() {
 	    
@@ -94,7 +161,11 @@ class users_controller extends base_controller {
 		    // echo "You are logged in!";
 	    }
 	    
-    }
+    } # end of method
+    
+/*-------------------------------------------------------------------------------------------------
+	Logout, redirects to "/"
+-------------------------------------------------------------------------------------------------*/
 
     public function logout() {
         
@@ -114,7 +185,12 @@ class users_controller extends base_controller {
         # Send them back to the main index
         Router::redirect("/");
         
-    }
+    } # end of method
+    
+/*-------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------*/
+
 
     public function profile() {
 
@@ -132,6 +208,6 @@ class users_controller extends base_controller {
 		# Render view
 		echo $this->template;
              
-    }
+    } # end of method
 
 } # end of the class
