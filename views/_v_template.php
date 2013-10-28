@@ -30,7 +30,7 @@
 				<a href='/posts'>Yapper Feed</a>
 				<a href='/posts/add'>Yap</a>
 				<a href='/posts/users'>Connect</a>
-				<a href='/users/profile'>Profile</a>			
+				<a href='/users/profile'>My Profile</a>			
 				<a href='/users/logout'>Sign out</a>
 						
 						
