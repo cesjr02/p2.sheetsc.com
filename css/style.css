@@ -158,6 +158,11 @@ nav a {
 	margin-left: 20px;
 }
 
+nav a:hover, nav a:active,
+nav .active a:link, nav .active a:visited {
+	border-bottom:1px solid white;
+}
+
 /* ------------IMAGES STYLE------------- */
 
 .main-info-graphic {
