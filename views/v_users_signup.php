@@ -17,21 +17,21 @@
 	<form method='POST' action='/users/p_signup'>
 		
 		First Name<br>
-	    <input type='text' name='first_name' class='field'  placeholder='Enter first name' value='<?php if(isset($_POST['first_name'])) echo $_POST['first_name']?>'><br>
+	    <input type='text' name='first_name' class='field' value='<?php if(isset($_POST['first_name'])) echo $_POST['first_name']?>'><br>
 	        
 	    Last Name<br>
-	    <input type='text' name='last_name' class='field' placeholder='Enter last name' value='<?php if(isset($_POST['last_name'])) echo $_POST['last_name']?>'><br>
+	    <input type='text' name='last_name' class='field' value='<?php if(isset($_POST['last_name'])) echo $_POST['last_name']?>'><br>
 	        
 	    Email<br>
-	    <input type='text' name='email' class='field' placeholder='Enter email' value='<?php if(isset($_POST['email'])) echo $_POST['email']?>'><br>
+	    <input type='text' name='email' class='field' value='<?php if(isset($_POST['email'])) echo $_POST['email']?>'><br>
 	
 			
 		Password<br>
-		<input type='password' name='password' class='field' placeholder='Enter password'>
+		<input type='password' name='password' class='field'>
 		<br>
 		
 		Retype Password<br>
-        <input type='password' name='retype' class='field' placeholder='Retype password'>
+        <input type='password' name='retype' class='field'>
         
 		<!-- Check to see if error isset. If so, echo specific error. -->		
 		<?php if(isset($error)): ?>

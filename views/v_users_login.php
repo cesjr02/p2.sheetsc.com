@@ -3,11 +3,11 @@
 <form method='POST' action='/users/p_login'>
 		
 	Email<br>
-	<input type='email' name='email' class='field' placeholder='Enter email' required>
+	<input type='email' name='email' class='field' required>
 	<br>
 			
 	Password<br>
-	<input type='password' name='password' class='field' placeholder='Enter password' required>
+	<input type='password' name='password' class='field' required>
 	<br>
 			
 	<?php if(isset($error)): ?>
