@@ -1,0 +1,1 @@
+Thanks for signing up to YapperBox! This email confirms your registration. 
