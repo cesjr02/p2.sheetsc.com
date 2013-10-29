@@ -18,7 +18,7 @@ If you want a different default time format for this app, set it below
 
 # When email is sent out from the server, where should it come from?
 # Ideally, this should match the domain name
-	define('APP_EMAIL', 'cesjr02@gmail.com'); 
+	define('APP_EMAIL', 'cj@sheetsc.com'); 
 
 /* 
 A email designated to receive messages from the server. Examples:
@@ -28,7 +28,7 @@ A email designated to receive messages from the server. Examples:
  	
  	Some might want this to be the same as the APP_EMAIL, others might want to create a designated gmail address for it
 */ 	
-	define('SYSTEM_EMAIL', 'cesjr02@gmail.com'); 
+	define('SYSTEM_EMAIL', 'cj@sheetsc.com'); 
 
 # Default DB name for this app
 	define('DB_NAME', 'sheetscc_p2_sheetsc_com'); 
@@ -38,9 +38,9 @@ A email designated to receive messages from the server. Examples:
 
 # If your app is going to have outgoing emails, you should fill in your SMTP settings
 # For this you could use gmail SMTP or something like http://sendgrid.com/
-	//define('SMTP_HOST', '');
-	//define('SMTP_USERNAME', '');
-	//define('SMTP_PASSWORD', '');
+	define('SMTP_HOST', 'smtp.sendgrid.net');
+	define('SMTP_USERNAME', 'cesjr02');
+	define('SMTP_PASSWORD', 'guitar84');
 
 # For extra security, you might want to set different salts than what the core uses
 	define('PASSWORD_SALT', 'g@Y)(wn0bvqXXtW_!aP_m8PQk3W4X0HvO)7Hux%8');
