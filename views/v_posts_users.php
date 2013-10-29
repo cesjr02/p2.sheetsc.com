@@ -1,6 +1,6 @@
 <section class='contentFollow'>
 
-<h1>Follow some Yappers</h1>
+<h2>Follow some Yappers</h2>
 
 <p> 
 Choose to follow or unfollow from a list of users below. 

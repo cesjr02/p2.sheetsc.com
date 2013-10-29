@@ -1,5 +1,5 @@
 <section class='content'>
-<h1>Yapper Feed</h1>
+<h2>Yapper Feed</h2>
 
 <?php if (count($posts) == 0) :?>
         <p>Hey, you haven't followed anyone yet!<br>Why not <a href="/posts/users">follow some Yappers</a> now?</p>
