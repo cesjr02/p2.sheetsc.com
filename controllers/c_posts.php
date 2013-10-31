@@ -203,8 +203,8 @@ class posts_controller extends base_controller {
 	
 public function delete($post_id) {
 
-    $where = 'WHERE post_id = '.$post_id;
-    DB::instance(DB_NAME)->delete('users',$where);
+    $where_condition = 'WHERE post_id = '.$post_id;
+	DB::instance(DB_NAME)->delete('posts', $where_condition);
 
 	// quick and dirty
     // send them back
