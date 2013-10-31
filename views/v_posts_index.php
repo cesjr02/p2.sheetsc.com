@@ -1,23 +1,37 @@
 <section class='content'>
 <h2>Yapper Feed</h2>
 
-<?php if (count($posts) == 0) :?>
-        <p>Hey, you haven't followed anyone yet!<br>Why not <a href="/posts/users">follow some Yappers</a> now?</p>
-<?php endif; ?>
-
-<?php foreach($posts as $post): ?>
+	<?php if(empty($posts)): ?>
+	
+		<p>
+			Click <a href="/posts/users/">here</a> to start following other users. 
+		</p>
+	
+	<?php endif; ?>
+	
+	<?php foreach($posts as $post): ?>
 
 <article>
 
-	<h2><?=$post['first_name']?> <?=$post['last_name']?> posted:</h2>
+	<?php if($post['user_id'] == $user->user_id): ?>
+		<h3>You Yapped:<h3>
+	<?php else: ?>
+		<h3><?=$post['first_name']?> <?=$post['last_name']?> Yapped:</h3>
+	<?php endif; ?>
 	
-	<p><?=$post['content']?></p>
+		<p class="postContent"><?=$post['content']?></p>
 	
-	<time datetime="<?Time::display($post['created'],'Y-m-d G:i')?>">
+		<p class="datetime">Yapped on: <time datetime="<?Time::display($post['created'],'Y-m-d G:i')?>">
 		<?=Time::display($post['created'])?>
-	</time>
+		</time></p>
+	
+	<?php if($post['user_id'] == $user->user_id): ?>
+		<h3><a href="/posts/confirm_delete/<?php echo $post['id']; ?>"><input type='submit' value='Delete Post' class='button' id="deleteMargin" ></a><h3>
+	<?php else: ?>
+	<?php endif; ?>
 
 </article>
 
-<?php endforeach; ?>
+	<?php endforeach; ?>
+	
 </section>
