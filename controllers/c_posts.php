@@ -179,16 +179,16 @@ class posts_controller extends base_controller {
 	   		 FROM posts 
 	   		 WHERE id = $post and created_by = $user';        
         
-        // run the query, store results in the variable $posts
+	   	// run the query, store results in the variable $posts
 	    $posts = DB::instance(DB_NAME)->select_rows($q);
 	    
 	    // pass $posts array to the view
 		$this->template->content->posts = $posts;
        
-       // delete connection
-       DB::instance(DB_NAME)->delete('posts','WHERE post_id ='.$post_id);
+		// delete connection
+	    DB::instance(DB_NAME)->delete('posts','WHERE post_id ='.$post_id);
        
-       // setup view
+		// setup view
         $this->template->content = View::instance('v_posts_p_delete');
         $this->template->title   = "Confirm Delete";
        
@@ -196,8 +196,8 @@ class posts_controller extends base_controller {
         echo $this->template;
 
        
-       # Send them back to the homepage
-       Router::redirect('/posts');
+		// redirect them back to posts feed
+		Router::redirect('/posts');
        
     }  
 	
