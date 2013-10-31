@@ -322,6 +322,51 @@ nav a {
 	margin-bottom: 10px;
 }
 
+/* ------------TEXT AREA FOCUS STYLE------------- */
+
+.textarea:focus {
+	border-top: #4f28a8 2px solid;
+	border-right: #4f28a8 2px solid;
+	border-bottom: #4f28a8 2px solid;
+	border-left: #4f28a8 2px solid;
+	
+	-webkit-animation: fadein .5s; /* Safari and Chrome */
+	-moz-animation: fadein .5s; /* Firefox */
+	-ms-animation: fadein .5s; /* Internet Explorer */
+	-o-animation: fadein .5s; /* Opera */
+	animation: fadein .5s;	
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
+
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
 /* ------------TEXT AREA VALIDATION STYLE------------- */
 
 textarea:required:invalid, textarea:focus:invalid {
@@ -329,10 +374,23 @@ textarea:required:invalid, textarea:focus:invalid {
 }
 
 textarea:required:valid {
-	border-top: #4f28a8 2px solid;
-	border-right: #4f28a8 2px solid;
-	border-bottom: #4f28a8 2px solid;
-	border-left: #4f28a8 2px solid;
+	border-top: #52a828 2px solid;
+	border-right: #52a828 2px solid;
+	border-bottom: #52a828 2px solid;
+	border-left: #52a828 2px solid;
+}
+
+/* ------------TEXT FIELD VALIDATION STYLE------------- */
+
+.field:required:invalid, .field:focus:invalid {
+	-moz-box-shadow: none;
+}
+
+.field:required:valid {
+	border-top: #52a828 2px solid;
+	border-right: #52a828 2px solid;
+	border-bottom: #52a828 2px solid;
+	border-left: #52a828 2px solid;
 }
 
 /* ------------BUTTON STYLE------------- */
