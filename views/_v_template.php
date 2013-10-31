@@ -30,7 +30,7 @@
 
 <header class="mainHeader">
 	<div id="headerContent">
-		<img src="/images/logo.png" width="300px" height="138px" align="left" alt="logo">
+		<a href='/'><img src="/images/logo.png" width="300px" height="138px" align="left" alt="logo"></a>
 		
 			<nav>
 				<!-- Menu for logged in users -->
