@@ -53,7 +53,7 @@ class users_controller extends base_controller {
         foreach($_POST as $field_name => $value) {
                         
         	// if a field was blank, add a message to the error View variable
-        	if($value == "") {
+        	if(trim($value) == "") {
             	$error = true;
             	$this->template->content->error = 'All fields are required.';
             }
@@ -65,9 +65,9 @@ class users_controller extends base_controller {
         $exists = DB::instance(DB_NAME)->select_field("SELECT email FROM users WHERE email = '" . $_POST['email'] . "'");
 
        if (isset($exists)) {
-           		$error = true;
-		   		$this->template->content->error = 'This email address has already been registered, please try again.';
-		   		echo $this->template;          
+           	$error = true;
+		   	$this->template->content->error = 'This email address has already been registered, please try again.';
+		   	echo $this->template;          
 		}
 		   	
 		// check if password is typed correctly
@@ -108,16 +108,6 @@ class users_controller extends base_controller {
             // do the insert
             DB::instance(DB_NAME)->insert('users_users', $data);
             
-            // send an email a welcome message to the new user
-            // build a multi-dimension array of recipients of this email
-            $to[]    = Array("name" => $_POST['first_name'], "email" => $_POST['email']);
-            $from    = Array("name" => APP_NAME, "email" => APP_EMAIL);
-            $subject = "Welcome to YapperBox";               
-            $body = View::instance('e_users_welcome');
-                
-            // Send email
-            Email::send($to, $from, $subject, $body, true, '');
-            
             // log user in using the token we generated
             setcookie("token", $_POST['token'], strtotime('+1 year'), '/');
             
@@ -134,9 +124,9 @@ class users_controller extends base_controller {
             // signup confirm
 			Router::redirect("/users/profile");
         }
-        	else {
-            	echo $this->template;
-            }
+        else {
+            echo $this->template;
+		}
    
     } 
 
@@ -188,7 +178,6 @@ class users_controller extends base_controller {
 		    Router::redirect("/users/login/error");
 		
 	    }
-	    
 	    else {
 		    
 		    setcookie("token", $token, strtotime('+1 year'), '/');
@@ -228,8 +217,7 @@ class users_controller extends base_controller {
 
 -------------------------------------------------------------------------------------------------*/
 
-
-    public function profile($user_name = NULL) {
+    public function profile($error = NULL) {
 
 		// if user is blank, they're not logged in; redirect them to the login page
 		if(!$this->user) {
@@ -242,6 +230,9 @@ class users_controller extends base_controller {
 		$this->template->content = View::instance('v_users_profile');
 		$this->template->title = $this->user->first_name .' ' . $this->user->last_name. " | Profile";
 		
+		// pass errors, if any
+        $this->template->content->error = $error;
+		
 		// render view
 		echo $this->template;
              
@@ -250,7 +241,38 @@ class users_controller extends base_controller {
 /*-------------------------------------------------------------------------------------------------
 	profile upload avatar
 -------------------------------------------------------------------------------------------------*/
-    
+
+	public function p_profile() {
+        // if user specified a new image file, upload it
+        if ($_FILES["file"]["error"] == 0)
+        {
+            //upload an image
+            $image = Upload::upload($_FILES, "/uploads/avatars/", array("jpg", "jpeg", "gif", "png"), $this->user->user_id);
+
+            if($image == 'Invalid file type.') {
+                // return an error
+                Router::redirect("/users/profile/error"); 
+            }
+            else {
+                // process the upload
+                $data = Array("image" => $image);
+                DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = ".$this->user->user_id);
+
+                // resize the image
+                $imgObj = new Image($_SERVER["DOCUMENT_ROOT"] . '/uploads/avatars/' . $image);
+                $imgObj->resize(200,200, "crop");
+                $imgObj->save_image($_SERVER["DOCUMENT_ROOT"] . '/uploads/avatars/' . $image); 
+            }
+        }
+        else
+        {
+            // return an error
+            Router::redirect("/users/profile/error");  
+        }
+
+        // Redirect back to the profile page
+        router::redirect('/users/profile'); 
+    }  
  
 
 } // eoc
