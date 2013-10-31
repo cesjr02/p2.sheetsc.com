@@ -43,14 +43,14 @@ class posts_controller extends base_controller {
         // Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us
         DB::instance(DB_NAME)->insert('posts', $_POST);
 
-        // quick and dirty feedback
-       //  echo "Your post has been added. <a href='/posts/add'>Add another</a>";
+		// quick and dirty feedback
+		//  echo "Your post has been added. <a href='/posts/add'>Add another</a>";
        
-       // setup view
+		// setup view
         $this->template->content = View::instance('v_posts_p_add');
         $this->template->title   = "Yap Added";
        
-       // render view
+		// render view
         echo $this->template;
 
     } 
@@ -60,6 +60,7 @@ class posts_controller extends base_controller {
 -------------------------------------------------------------------------------------------------*/
     
     public function index() {
+    
 	    
 	    // set up the View
 	    $this->template->content = View::instance('v_posts_index');
@@ -71,6 +72,7 @@ class posts_controller extends base_controller {
             posts.created,
             posts.user_id AS post_user_id,
             users_users.user_id AS follower_id,
+            users.user_id,
             users.first_name,
             users.last_name
         FROM posts
@@ -130,7 +132,7 @@ class posts_controller extends base_controller {
 	    echo $this->template;
 	    
     } 
-    
+                    
 /*-------------------------------------------------------------------------------------------------
 	creates a row in the users_users table representing that one user is following another
 -------------------------------------------------------------------------------------------------*/
@@ -166,6 +168,52 @@ class posts_controller extends base_controller {
 	    Router::redirect("/posts/users");
 	
 	} 
+	
+/*-------------------------------------------------------------------------------------------------
+	delete post
+-------------------------------------------------------------------------------------------------*/
+
+	public function confirm_delete($post_id) {
+        
+       $q = 'SELECT * 
+	   		 FROM posts 
+	   		 WHERE id = $post and created_by = $user';        
+        
+        // run the query, store results in the variable $posts
+	    $posts = DB::instance(DB_NAME)->select_rows($q);
+	    
+	    // pass $posts array to the view
+		$this->template->content->posts = $posts;
+       
+       // delete connection
+       DB::instance(DB_NAME)->delete('posts','WHERE post_id ='.$post_id);
+       
+       // setup view
+        $this->template->content = View::instance('v_posts_p_delete');
+        $this->template->title   = "Confirm Delete";
+       
+		// render view
+        echo $this->template;
+
+       
+       # Send them back to the homepage
+       Router::redirect('/posts');
+       
+    }  
+	
+public function delete($post_id) {
+
+    $where = 'WHERE post_id = '.$post_id;
+    DB::instance(DB_NAME)->delete('users',$where);
+
+	// quick and dirty
+    // send them back
+	Router::redirect("/posts/users")
+
+}
+		
+	    
+	   
     
     
 } // eoc
