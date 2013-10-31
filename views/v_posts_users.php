@@ -2,9 +2,7 @@
 
 <h2>Follow some Yappers</h2>
 
-<p> 
-Choose to follow or unfollow from a list of users below. 
-</p>
+<p class="spaceAfter">Choose to follow or unfollow from a list of users below.</p>
 
 <? foreach($users as $yapper): ?>
 
@@ -12,15 +10,15 @@ Choose to follow or unfollow from a list of users below.
     <?php if ($user->user_id != $yapper['user_id']) : ?>
 
 		<!-- Print this user's name -->
-		<h2><?=$yapper['first_name']?> <?=$yapper['last_name']?></h2>
+		<h3><?=$yapper['first_name']?> <?=$yapper['last_name']?></h3>
 		
 		<!-- If there exists a connection with this user, show a unfollow link -->
 		<? if(isset($connections[$yapper['user_id']])): ?>
-			<a href='/posts/unfollow/<?=$yapper['user_id']?>'><img src='/images/unfollow.png' width='101px' height='29px' align='left' alt='unfollow'></a>
+			<a href='/posts/unfollow/<?=$yapper['user_id']?>'><input type='submit' value='Unfollow' class='button' id="buttonFollow" ></a>
 			
 		<!-- Otherwise, show the follow link -->
 		<? else: ?>
-			<a href='/posts/follow/<?=$yapper['user_id']?>'><img src='/images/follow.png' width='101px' height='29px' align='left' alt='follow'></a>
+			<a href='/posts/follow/<?=$yapper['user_id']?>'><input type='submit' value='Follow' class='button' id="buttonFollow" ></a>
 		<? endif; ?>
 		<br>
 	
