@@ -85,8 +85,7 @@ a {
 }
 
 .features {
-	margin-top: 20px;
-	margin-bottom: 5px;
+	margin-top: 0px;
 	font-size: 14px;
 	font-weight: bold;
 }
@@ -221,7 +220,7 @@ nav a {
 /* ------------IMAGES STYLE------------- */
 
 .main-info-graphic {
-	margin-top: 45px;
+	margin-top: 35px;
 }
 
 .avatar {
@@ -367,9 +366,14 @@ textarea:required:valid {
 	margin-top: 8px;
 }
 
-#deleteMargin {
+#buttonDelete {
 	margin-top: 0px;
 	margin-bottom: 0px;
+}
+
+#buttonMargin {
+	margin-top: 0px;
+	margin-bottom: 30px;
 }
 
 

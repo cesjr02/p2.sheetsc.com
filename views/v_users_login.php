@@ -17,7 +17,7 @@
 		<br>
 	<?php endif; ?>
 			
-	<input type='submit' value='Sign in' class='button'>
+	<input type='submit' value='Sign in' class='button' id="buttonMargin">
 		
 </form>
 
