@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
 
-	<!-- Start of Google Web Fonts -->
+<head profile="http://www.w3.org/2005/10/profile">
+	<!-- Bookmark Icon -->
+	<link rel="icon" type="image/png" href="images/bookmark-icon/myicon.png" />
+	
+	
+	<!-- Apple Icon -->      
+	<link rel="apple-touch-icon-precomposed" href="images/bookmark-icon/apple-touch-iphone.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/bookmark-icon/apple-touch-ipad.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/bookmark-icon/touch-icon-iphone-retina.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/bookmark-icon/apple-touch-ipad-retina.png" />
+
+	<!-- Google Web Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:300' rel='stylesheet' 	type='text/css' />
-	<!-- End of Google Web Fonts -->
 
 	<title><?php if(isset($title)) echo $title; ?></title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	
-	<link rel="stylesheet" type="text/css" href="/css/style.css">	
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 					
 	<!-- Controller Specific JS/CSS -->
 	<?php if(isset($client_files_head)) echo $client_files_head; ?>
@@ -21,7 +30,7 @@
 
 <header class="mainHeader">
 	<div id="headerContent">
-		<a href='/'><img src="/images/logo.png" width="300px" height="138px" align="left" alt="logo"> </a>
+		<img src="/images/logo.png" width="300px" height="138px" align="left" alt="logo">
 		
 			<nav>
 				<!-- Menu for logged in users -->
@@ -37,10 +46,8 @@
 				<!-- Menu for users who are not logged in -->
 				<?php else: ?>
 				
+				<a href='/'>Home/login</a>
 				<a href='/users/signup'>Register</a>
-				<a href='/users/login'>Sign in</a>		
-		
-				
 						
 				<?php endif; ?>
 			</nav>
@@ -48,13 +55,13 @@
 	</div> <!-- End of headerContent -->
 </header>
 
-<div id="wrapper">
+<div id="wrap">
 
 	<?php if(isset($content)) echo $content; ?>
 	
 	<?php if(isset($client_files_body)) echo $client_files_body; ?>
 
-</div> <!-- End of wrapper -->
+</div> <!-- End of wrap -->
 
 
 <footer>
