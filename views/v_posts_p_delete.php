@@ -1,6 +1,6 @@
 <?=$post['post_id']?>
 
-<?=print_r($posts);?>
+<!-- <?=print_r($posts);?> -->
 
 <?php foreach($posts as $post): ?>
 	<form action="/posts/confirm_delete/<?=$post['post_id']?>" method="post">
