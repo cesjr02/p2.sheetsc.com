@@ -4,7 +4,7 @@
 <head>
 	<!-- Bookmark Icon -->
 	<link rel="icon" type="image/png" href="images/bookmark-icon/myicon.png" />
-	<link rel="shortcut icon" href="http://www.p2.sheetsc.com/images/bookmark-icon/myicon.png?v=2" />
+	<link rel="shortcut icon" href="/images/bookmark-icon/myicon.png?v=1" />
 	
 	<!-- Apple Icon -->      
 	<link rel="apple-touch-icon-precomposed" href="images/bookmark-icon/apple-touch-iphone.png" />
