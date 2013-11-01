@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head profile="http://www.w3.org/2005/10/profile">
+<head>
 	<!-- Bookmark Icon -->
 	<link rel="icon" type="image/png" href="images/bookmark-icon/myicon.png" />
 	
@@ -30,7 +30,7 @@
 
 <header class="mainHeader">
 	<div id="headerContent">
-		<a href='/'><img src="/images/logo.png" width="300px" height="138px" align="left" alt="logo"></a>
+		<a href='/'><img src="/images/logo.png" id="logo" alt="logo"></a>
 		
 			<nav>
 				<!-- Menu for logged in users -->

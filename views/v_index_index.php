@@ -6,8 +6,9 @@
 	</p>
 	
 	
-	
-	<img src="/images/main-info-graphic.png" width="540px" height="462px" align="left" class="main-info-graphic" alt="info graphic">
+	<div id="main-info-graphic">
+	<img src="/images/main-info-graphic.png" class="main-info-graphic" alt="info graphic">
+	</div> <!-- end of main info graphic -->
 		
 </section>
 
