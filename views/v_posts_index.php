@@ -26,7 +26,7 @@
 		</time></p>
 	
 	<?php if($post['user_id'] == $user->user_id): ?>
-		<h3><a href="/posts/confirm_delete/<?php echo $post['id']; ?>"><input type='submit' value='Delete Post' class='button' id="buttonDelete" ></a><h3>
+		<h3><a href="/posts/confirm_delete/"><input type='submit' value='Delete Post' class='button' id="buttonDelete" ></a><h3>
 	<?php else: ?>
 	<?php endif; ?>
 
