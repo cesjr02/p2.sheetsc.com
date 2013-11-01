@@ -175,9 +175,13 @@ class posts_controller extends base_controller {
 
 	public function confirm_delete($post_id) {
         
-       $q = 'SELECT * 
-	   		 FROM posts 
-	   		 WHERE id = $post and created_by = $user';        
+        // setup view
+        $this->template->content = View::instance('v_posts_p_delete');
+        $this->template->title   = "Confirm Delete";
+       
+		$q = 'SELECT * 
+			FROM posts 
+			WHERE id = $post and created_by = $user';        
         
 	   	// run the query, store results in the variable $posts
 	    $posts = DB::instance(DB_NAME)->select_rows($q);
@@ -187,10 +191,6 @@ class posts_controller extends base_controller {
        
 		// delete connection
 	    DB::instance(DB_NAME)->delete('posts','WHERE post_id ='.$post_id);
-       
-		// setup view
-        $this->template->content = View::instance('v_posts_p_delete');
-        $this->template->title   = "Confirm Delete";
        
 		// render view
         echo $this->template;
