@@ -247,7 +247,7 @@ class users_controller extends base_controller {
         if ($_FILES["file"]["error"] == 0)
         {
             //upload an image
-            $image = Upload::upload($_FILES, "/uploads/avatars/", array("jpg", "jpeg", "gif", "png"), $this->user->user_id);
+            $image = Upload::upload($_FILES, "/uploads/avatars/", array("jpg", "JPG", "jpeg", "JPEG", "gif", "GIF", "png", "PNG"), $this->user->user_id);
 
             if($image == 'Invalid file type.') {
                 // return an error
