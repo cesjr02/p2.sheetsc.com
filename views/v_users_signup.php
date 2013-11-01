@@ -12,6 +12,7 @@
 
 	<h2>Create Account</h2>
 	
+	<!-- form for signup -->
 	<form method='POST' action='/users/p_signup'>
 		
 		First Name<br>
@@ -31,7 +32,7 @@
 		Retype Password<br>
         <input type='password' name='retype' class='field'>
         
-		<!-- Check to see if error isset. If so, echo specific error. -->		
+		<!-- checks to see if error isset. If so, echo specific error. -->		
 		<?php if(isset($error)): ?>
 			<div class='error'>
 				Sign up failed.<br>
