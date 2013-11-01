@@ -183,7 +183,7 @@ class users_controller extends base_controller {
 		    setcookie("token", $token, strtotime('+1 year'), '/');
 		    
 		    // token found, login successful		
-		    Router::redirect("/posts");
+		    Router::redirect("/users/profile/");
 		    // echo "You are logged in!";
 	    }
 	    
