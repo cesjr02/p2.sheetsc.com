@@ -39,7 +39,9 @@
 				<a href='/posts'>Yapper Feed</a>
 				<a href='/posts/add'>Yap</a>
 				<a href='/posts/users'>Connect</a>
-				<a href='/users/profile'>My Profile</a>			
+				
+				<!-- if user is logged in, full name displayed in menu bar -->
+				<a href='/users/profile'><?=$user->first_name?> <?=$user->last_name?></a>			
 				<a href='/users/logout'>Sign out</a>
 						
 						
