@@ -23,6 +23,5 @@
 		</div>
 	<?php endif; ?>
 	
-	<input type="submit" name="submit" value="Update" class="button" id="buttonUpdate" user="Submit">
-	
+	<input type="submit" name="submit" value="Update" class="button" id="buttonUpdate" user="Submit">	
 <form>
