@@ -259,9 +259,6 @@ nav a {
 -------------------------------------------------------------------------------------------------*/
 
 .field {
-	-webkit-box-shadow: inset 0px 1px 4px 1px #929292;
-	-moz-box-shadow: inset 0px 1px 4px 1px #929292;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset;
 	width: 300px;
 	height: 28px;
 	border-top: #9f9e9e 1px solid;
@@ -269,8 +266,6 @@ nav a {
 	border-bottom: #ececec 1px solid;
 	border-left: #c9c9c9 1px solid;
 	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
 	outline: none;
 	padding: 6px 8px;
 	font-size: 13px;
@@ -333,9 +328,6 @@ nav a {
 -------------------------------------------------------------------------------------------------*/
 
 .textarea {
-	-webkit-box-shadow: inset 0px 1px 4px 1px #929292;
-	-moz-box-shadow: inset 0px 1px 4px 1px #929292;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset;
 	width: 300px;
 	height: 50px;
 	border-top: #9f9e9e 1px solid;
@@ -343,8 +335,6 @@ nav a {
 	border-bottom: #ececec 1px solid;
 	border-left: #c9c9c9 1px solid;
 	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
 	outline: none;
 	padding: 6px 8px;
 	font-size: 13px;
