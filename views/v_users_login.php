@@ -19,7 +19,7 @@
 		<br>
 	<?php endif; ?>
 			
-	<input type='submit' value='Sign in' class='button' id="buttonMargin">
+	<input type='submit' value='Sign in' class='button' id="loginButton">
 		
 </form>
 
