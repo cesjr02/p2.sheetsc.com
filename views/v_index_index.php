@@ -23,7 +23,7 @@
 <aside>
 
 	<!-- inserts login view -->
-	<?=$moreContent;?> 	
+	<?=$loginContent;?> 	
 	<div>
 	
 		<!-- list of +1 features -->
