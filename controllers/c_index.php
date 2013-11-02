@@ -19,7 +19,7 @@ class index_controller extends base_controller {
 		// any method that loads a view will commonly start with this
 		// first, set the content of the template with a view file
 			$this->template->content = View::instance('v_index_index');
-			$this->template->content->moreContent = View::instance('v_users_login'); 
+			$this->template->content->loginContent = View::instance('v_users_login'); 
 			
 		// now set the <title> tag
 			$this->template->title = "YapperBox";
