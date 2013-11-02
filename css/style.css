@@ -109,9 +109,8 @@ li {
 	font-size: 10px; /* bullet size */
 }
 
-.update {
-	font-size: 16px;
-	margin-top: 8px;
+#update {
+ 	font-weight: 300;
 	margin-bottom: 3px;
 }
 
@@ -281,10 +280,10 @@ nav a {
 -------------------------------------------------------------------------------------------------*/
 
 .field:focus {
-	border-top: #4f28a8 2px solid;
-	border-right: #4f28a8 2px solid;
-	border-bottom: #4f28a8 2px solid;
-	border-left: #4f28a8 2px solid;
+	border-top: #4f28a8 1px solid;
+	border-right: #4f28a8 1px solid;
+	border-bottom: #4f28a8 1px solid;
+	border-left: #4f28a8 1px solid;
 	
 	-webkit-animation: fadein .5s; /* Safari and Chrome */
 	-moz-animation: fadein .5s; /* Firefox */
@@ -350,10 +349,10 @@ nav a {
 -------------------------------------------------------------------------------------------------*/
 
 .textarea:focus {
-	border-top: #4f28a8 2px solid;
-	border-right: #4f28a8 2px solid;
-	border-bottom: #4f28a8 2px solid;
-	border-left: #4f28a8 2px solid;
+	border-top: #4f28a8 1px solid;
+	border-right: #4f28a8 1px solid;
+	border-bottom: #4f28a8 1px solid;
+	border-left: #4f28a8 1px solid;
 	
 	-webkit-animation: fadein .5s; /* Safari and Chrome */
 	-moz-animation: fadein .5s; /* Firefox */
@@ -401,10 +400,10 @@ textarea:required:invalid, textarea:focus:invalid {
 }
 
 textarea:required:valid {
-	border-top: #52a828 2px solid;
-	border-right: #52a828 2px solid;
-	border-bottom: #52a828 2px solid;
-	border-left: #52a828 2px solid;
+	border-top: #52a828 1px solid;
+	border-right: #52a828 1px solid;
+	border-bottom: #52a828 1px solid;
+	border-left: #52a828 1px solid;
 }
 
 
@@ -417,10 +416,10 @@ textarea:required:valid {
 }
 
 .field:required:valid {
-	border-top: #52a828 2px solid;
-	border-right: #52a828 2px solid;
-	border-bottom: #52a828 2px solid;
-	border-left: #52a828 2px solid;
+	border-top: #52a828 1px solid;
+	border-right: #52a828 1px solid;
+	border-bottom: #52a828 1px solid;
+	border-left: #52a828 1px solid;
 }
 
 
@@ -440,7 +439,7 @@ textarea:required:valid {
 	border: 0;
 	text-decoration: none;
 	margin-bottom: 50px;
-	margin-top: 5px;
+	margin-top: 0px;
 }
 
 .button:hover {
@@ -450,7 +449,6 @@ textarea:required:valid {
 
 #buttonFollow {
 	margin-bottom: 30px;
-	margin-top: 0px;
 }
 
 #buttonUpdate {
@@ -458,12 +456,15 @@ textarea:required:valid {
 }
 
 #buttonDelete {
-	margin-top: 0px;
 	margin-bottom: 0px;
 }
 
-#buttonMargin {
-	margin-top: 0px;
+#confirmDelete {
+	margin-top: 15px;
+	margin-bottom: 0px;
+}
+
+#loginButton {
 	margin-bottom: 30px;
 }
 
