@@ -70,6 +70,7 @@ class posts_controller extends base_controller {
 	    $q = 'SELECT 
             posts.content,
             posts.created,
+            posts.post_id,
             posts.user_id AS post_user_id,
             users_users.user_id AS follower_id,
             users.user_id,
@@ -173,31 +174,14 @@ class posts_controller extends base_controller {
 	delete post
 -------------------------------------------------------------------------------------------------*/
 
-	public function confirm_delete($post_id) {
-        
-        // setup view
-        $this->template->content = View::instance('v_posts_p_delete');
-        $this->template->title   = "Confirm Delete";
-       
-		$q = 'SELECT * 
-			FROM posts 
-			WHERE id = $post and created_by = $user';        
-        
-	   	// run the query, store results in the variable $posts
-	    $posts = DB::instance(DB_NAME)->select_rows($q);
-	    
-	    // pass $posts array to the view
-		$this->template->content->posts = $posts;
-       
-		// delete connection
-	    DB::instance(DB_NAME)->delete('posts','WHERE post_id ='.$post_id);
-       
-		// render view
-        echo $this->template;
-
-       
-		// redirect them back to posts feed
-		Router::redirect('/posts');
+	public function p_delete($post_id) {
+      
+		// Delete this connection
+		$where_condition = 'WHERE post_id = '.$post_id;
+		DB::instance(DB_NAME)->delete('posts', $where_condition);
+                        
+		// Send them back
+		Router::redirect("/users/profile");
        
     }  
     
@@ -205,17 +189,17 @@ class posts_controller extends base_controller {
 	
 -------------------------------------------------------------------------------------------------*/
 	
-public function delete($post_id) {
+	public function delete() {
+        
+        // setup view
+        $this->template->content = View::instance('v_posts_delete');
+        $this->template->title   = "Confirm Delete";
 
-    $where_condition = 'WHERE post_id = '.$post_id;
-	DB::instance(DB_NAME)->delete('posts', $where_condition);
-
-
-
-}
-		
-	    
-	   
-    
+       
+		// render view
+        echo $this->template;
+      
+       
+    }   
     
 } // eoc
