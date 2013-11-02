@@ -175,13 +175,14 @@ class posts_controller extends base_controller {
 -------------------------------------------------------------------------------------------------*/
 
 	public function p_delete($post_id) {
+      	
       
 		// Delete this connection
 		$where_condition = 'WHERE post_id = '.$post_id;
 		DB::instance(DB_NAME)->delete('posts', $where_condition);
-                        
+                     
 		// Send them back
-		Router::redirect("/users/profile");
+		Router::redirect("/posts");
        
     }  
     
