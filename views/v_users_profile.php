@@ -12,7 +12,7 @@
 
 	<!-- displays user image if uploaded -->
 	<img class="avatar" src="/uploads/avatars/<?=$user->image ?>" alt="<?=$user->first_name . ' ' . $user->last_name ?>"><br />
-	<h3 class="update" >Update profile picture:</h3>
+	<h4 id="update" >Update profile picture:</h4>
 	<input type="file" name="file" id="file"><br>
 	
 	<!-- error if wrong file type is uploaded -->
