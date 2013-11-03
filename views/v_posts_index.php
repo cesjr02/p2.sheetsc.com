@@ -29,7 +29,7 @@
 	
 	<!-- displays delete button on logged in user's posts -->
 	<?php if($post['user_id'] == $user->user_id): ?>
-		<a href='/posts/delete/<?=$post['post_id']?>'><button type="button" class='button' id='buttonDelete'>Delete Post</button></a>
+		<a href='/posts/confirm_delete/<?=$post['post_id']?>'><button type="button" class='button' id='buttonDelete'>Delete Post</button></a>
 	<?php else: ?>
 	<?php endif; ?>
 

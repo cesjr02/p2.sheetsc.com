@@ -68,10 +68,10 @@ class posts_controller extends base_controller {
 	    
 	    // query
 	    $q = 'SELECT 
+	    	posts.post_id,
             posts.content,
             posts.created,
-            posts.post_id,
-            posts.user_id AS post_user_id,
+            posts.user_id AS post_user_id,         
             users_users.user_id AS follower_id,
             users.user_id,
             users.first_name,
@@ -169,37 +169,34 @@ class posts_controller extends base_controller {
 	    Router::redirect("/posts/users");
 	
 	} 
+		
+/*-------------------------------------------------------------------------------------------------
+	confirm delete	
+-------------------------------------------------------------------------------------------------*/
+	
+	public function confirm_delete($post_id) {
+        
+        // setup view
+        $this->template->content = View::instance('v_confirm_delete');
+        $this->template->title   = "Confirm Delete";
+      
+		// render view
+        echo $this->template;
+            
+    }  
 	
 /*-------------------------------------------------------------------------------------------------
 	delete post
 -------------------------------------------------------------------------------------------------*/
 
-	public function p_delete($post_id) {
-      	
+	public function delete($post_id) {
       
-		// Delete this connection
+		// delete this connection
 		$where_condition = 'WHERE post_id = '.$post_id;
 		DB::instance(DB_NAME)->delete('posts', $where_condition);
                      
-		// Send them back
+		// send them back
 		Router::redirect("/posts");
-       
-    }  
-    
-/*-------------------------------------------------------------------------------------------------
-	
--------------------------------------------------------------------------------------------------*/
-	
-	public function delete() {
-        
-        // setup view
-        $this->template->content = View::instance('v_posts_delete');
-        $this->template->title   = "Confirm Delete";
-
-       
-		// render view
-        echo $this->template;
-      
        
     }   
     
