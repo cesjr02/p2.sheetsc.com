@@ -272,7 +272,67 @@ class users_controller extends base_controller {
 
         // Redirect back to the profile page
         router::redirect('/users/profile'); 
-    }  
+    } 
+    
+
+/*-------------------------------------------------------------------------------------------------
+	unsubscribe page
+-------------------------------------------------------------------------------------------------*/
+
+	public function unsubscribe($error = NULL) {
+
+		// setup View
+		$this->template->title = "Delete Account";
+		$this->template->content = View::instance('v_users_unsubscribe');
+		$this->template->content->error = $error;
+		
+		// render template
+		echo $this->template;
+	
+	}
+    
+/*-------------------------------------------------------------------------------------------------
+	process unsubscribe
+-------------------------------------------------------------------------------------------------*/
+
+	public function p_unsubscribe() {
+    
+        $error = '';
+        if ($_POST['password'] != $_POST['conf_password']) {
+            $error = 'InvalidPassword';
+        }
+        else {
+            // sanitize the user entered data to prevent SQL Injection Attacks
+            $_POST = DB::instance(DB_NAME)->sanitize($_POST);
+
+            // hash submitted password so we can compare it against one in the db
+            $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
+
+            // search the db for this email and password
+            // retrieve the token if it's available
+            $q = "SELECT token 
+                FROM users 
+                WHERE email = '".$this->user->email."' 
+                AND password = '".$_POST['password']."'";
+
+            $token = DB::instance(DB_NAME)->select_field($q);
+            if (!$token) {
+                $error = 'InvalidPassword';
+            }
+            else {
+                // all checks passed, now cleanup the DB from this user
+                // deletes user, their posts, and all connections in users_users
+                $w = 'WHERE user_id = '.$this->user->user_id;
+                DB::instance(DB_NAME)->delete('users', $w);
+            }
+        }
+        if ($error != '') {
+            Router::redirect("/users/unsubscribe/$error");
+        }
+        else {
+            Router::redirect("/");
+        }
+    } 
  
 
 } // eoc

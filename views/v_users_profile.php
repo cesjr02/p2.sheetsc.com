@@ -24,4 +24,7 @@
 	<?php endif; ?>
 	
 	<input type="submit" name="submit" value="Update" class="button" id="buttonUpdate" user="Submit">	
-<form>
+<form><br>
+<hr>
+<h4>Delete Account</h4>
+Click<a href="/users/unsubscribe/"> here </a>if you wish to delete your account.
