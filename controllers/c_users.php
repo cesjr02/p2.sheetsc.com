@@ -58,8 +58,7 @@ class users_controller extends base_controller {
             	$this->template->content->error = 'All fields are required.';
             }
 		} 
-		
-		
+				
 		// check whether this user's email already exists (sanitize input first)
         $_POST = DB::instance(DB_NAME)->sanitize($_POST);
         $exists = DB::instance(DB_NAME)->select_field("SELECT email FROM users WHERE email = '" . $_POST['email'] . "'");
@@ -76,11 +75,17 @@ class users_controller extends base_controller {
             $this->template->content->error = 'Password fields don&apos;t match.';
             echo $this->template;          
         }
-		
-		       
-                        
+                
         // if no previous errors, add to database
         else if(!$error) {
+        
+        	// add XSS and html tag filtering
+            $firstname = $_POST['first_name'];
+            $firstname = strip_tags(htmlentities(stripslashes(nl2br($firstname)),ENT_NOQUOTES,"Utf-8"));
+                                        
+            // add XSS and html tag filtering
+            $lastname = $_POST['last_name'];
+            $lastname = strip_tags(htmlentities(stripslashes(nl2br($lastname)),ENT_NOQUOTES,"Utf-8"));
         
         	// unset the 'retype' field (not needed in db)
             unset($_POST['retype']);
@@ -126,8 +131,9 @@ class users_controller extends base_controller {
         }
         else {
             echo $this->template;
-		}
-   
+            
+		} 
+		 
     } 
 
 /*-------------------------------------------------------------------------------------------------
