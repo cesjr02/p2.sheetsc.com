@@ -76,7 +76,7 @@ a {
 .error {
 	color: red;
 	font-size: 14px;
-	margin-top: 5px;
+	margin-bottom: 10px;
 }
 
 .datetime {
@@ -120,7 +120,7 @@ li {
 
 
 /*-------------------------------------------------------------------------------------------------
-	divs & sections
+	structure
 -------------------------------------------------------------------------------------------------*/
 
 #wrap {
@@ -194,6 +194,10 @@ footer p {
 	margin: auto;
 	padding-top: 8px;
 	font-size: 12px;
+}
+
+hr {
+	margin-bottom: 5px;
 }
 
 
