@@ -6,6 +6,6 @@
 	
 	<a href='/posts/delete/<?=$post['post_id']?>'><button type="button" class='button' id='confirmDelete'>Delete</button></a>
 
-</section>section
+</section>
 
 
