@@ -70,7 +70,6 @@
 	<p>2013 YapperBox - Developed and Designed by CJ Sheets</p>
 </footer>
 
-
 </body>
 
 </html>
