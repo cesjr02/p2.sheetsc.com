@@ -35,6 +35,10 @@
 		 	
 		 	<li>
 			 	<span>Upload avatar to profile page</span>
+		 	</li>
+		 	
+		 	<li>
+			 	<span>Delete Account</span>
 		 	</li>	
 		</ul>
 	</div>   
