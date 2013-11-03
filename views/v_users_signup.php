@@ -11,25 +11,25 @@
 <aside>
 
 	<h2>Create Account</h2>
-	
+	<p class="error">* required field.</p>
 	<!-- form for signup -->
 	<form method='POST' action='/users/p_signup'>
 		
-		First Name<br>
+		First Name<span class="error">*</span><br>
 	    <input type='text' name='first_name' class='field' value='<?php if(isset($_POST['first_name'])) echo $_POST['first_name']?>'><br>
 	        
-	    Last Name<br>
+	    Last Name<span class="error">*</span><br>
 	    <input type='text' name='last_name' class='field' value='<?php if(isset($_POST['last_name'])) echo $_POST['last_name']?>'><br>
 	        
-	    Email<br>
+	    Email<span class="error">*</span><br>
 	    <input type='text' name='email' class='field' value='<?php if(isset($_POST['email'])) echo $_POST['email']?>'><br>
 	
 			
-		Password<br>
+		Password<span class="error">*</span><br>
 		<input type='password' name='password' class='field'>
 		<br>
 		
-		Retype Password<br>
+		Retype Password<span class="error">*</span><br>
         <input type='password' name='retype' class='field'>
         
 		<!-- checks to see if error isset. If so, echo specific error. -->		
