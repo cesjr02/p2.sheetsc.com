@@ -60,9 +60,8 @@ class posts_controller extends base_controller {
 -------------------------------------------------------------------------------------------------*/
     
     public function index() {
-    
-	    
-	    // set up the View
+    	    
+		// set up the View
 	    $this->template->content = View::instance('v_posts_index');
 	    $this->template->title   = "Yapper Feed";
 	    
@@ -140,18 +139,18 @@ class posts_controller extends base_controller {
     
     public function follow($user_id_followed) {
 
-    // prepare the data array to be inserted
-    $data = Array(
-        "created" => Time::now(),
-        "user_id" => $this->user->user_id,
-        "user_id_followed" => $user_id_followed
-        );
-
-    // do the insert
-    DB::instance(DB_NAME)->insert('users_users', $data);
-
-    // send them back
-    Router::redirect("/posts/users");
+	    // prepare the data array to be inserted
+	    $data = Array(
+	        "created" => Time::now(),
+	        "user_id" => $this->user->user_id,
+	        "user_id_followed" => $user_id_followed
+	        );
+	
+	    // do the insert
+	    DB::instance(DB_NAME)->insert('users_users', $data);
+	
+	    // send them back
+	    Router::redirect("/posts/users");
 
 	} 
 

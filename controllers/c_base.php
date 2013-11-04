@@ -14,17 +14,17 @@ class base_controller {
 	public function __construct() {
 						
 		// instantiate User obj
-			$this->userObj = new User();
+		$this->userObj = new User();
 			
 		// authenticate / load user
-			$this->user = $this->userObj->authenticate();					
+		$this->user = $this->userObj->authenticate();					
 						
 		// set up templates
-			$this->template 	  = View::instance('_v_template');
+		$this->template 	  = View::instance('_v_template');
 			$this->email_template = View::instance('_v_email');			
 								
 		// so we can use $user in views			
-			$this->template->set_global('user', $this->user);
+		$this->template->set_global('user', $this->user);
 			
 	}
 	

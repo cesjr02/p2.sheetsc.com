@@ -16,8 +16,8 @@ class users_controller extends base_controller {
 
     public function signup() {
     
-    	// setup view
-        $this->template->content = View::instance('v_users_signup');
+		// setup view
+		$this->template->content = View::instance('v_users_signup');
         	
         // set page title
 		$this->template->title = "Sign up";
@@ -44,16 +44,16 @@ class users_controller extends base_controller {
                 
         // if we have no post data just display the View with signup form
 		if(!$_POST) {
-        	echo $this->template;
-            return;
+			echo $this->template;
+			return;
         }
                 
 		// otherwise...
         // loop through the POST data
         foreach($_POST as $field_name => $value) {
                         
-        	// if a field was blank, add a message to the error View variable
-        	if(trim($value) == "") {
+			// if a field was blank, add a message to the error View variable
+			if(trim($value) == "") {
             	$error = true;
             	$this->template->content->error = 'All fields are required.';
             }
@@ -79,7 +79,7 @@ class users_controller extends base_controller {
         // if no previous errors, add to database
         else if(!$error) {
         
-        	// add XSS and html tag filtering
+			// add XSS and html tag filtering
             $firstname = $_POST['first_name'];
             $firstname = strip_tags(htmlentities(stripslashes(nl2br($firstname)),ENT_NOQUOTES,"Utf-8"));
                                         
@@ -87,7 +87,7 @@ class users_controller extends base_controller {
             $lastname = $_POST['last_name'];
             $lastname = strip_tags(htmlentities(stripslashes(nl2br($lastname)),ENT_NOQUOTES,"Utf-8"));
         
-        	// unset the 'retype' field (not needed in db)
+			// unset the 'retype' field (not needed in db)
             unset($_POST['retype']);
         
 			// more data we want stored with the user
@@ -104,7 +104,7 @@ class users_controller extends base_controller {
 			$user_id = DB::instance(DB_NAME)->insert('users', $_POST);
 			    
 			// all users follow their own posts by default
-            $data = Array(
+			$data = Array(
                 "created" => Time::now(),
                 "user_id" => $user_id,
                 "user_id_followed" => $user_id
@@ -180,7 +180,7 @@ class users_controller extends base_controller {
 	    // looks for matching token in DB
 	    if(!$token) {
 		    
-		    // token not found. Login failed, sends user back to login
+			// token not found. Login failed, sends user back to login
 		    Router::redirect("/users/login/error");
 		
 	    }
@@ -237,7 +237,7 @@ class users_controller extends base_controller {
 		$this->template->title = $this->user->first_name .' ' . $this->user->last_name. " | Profile";
 		
 		// pass errors, if any
-        $this->template->content->error = $error;
+		$this->template->content->error = $error;
 		
 		// render view
 		echo $this->template;
@@ -303,42 +303,46 @@ class users_controller extends base_controller {
 
 	public function p_unsubscribe() {
     
-        $error = '';
-        if ($_POST['password'] != $_POST['conf_password']) {
+		$error = '';
+		if ($_POST['password'] != $_POST['conf_password']) {
             $error = 'InvalidPassword';
-        }
-        else {
-            // sanitize the user entered data to prevent SQL Injection Attacks
-            $_POST = DB::instance(DB_NAME)->sanitize($_POST);
+		}
+		
+		else {
+			// sanitize the user entered data to prevent SQL Injection Attacks
+			$_POST = DB::instance(DB_NAME)->sanitize($_POST);
 
-            // hash submitted password so we can compare it against one in the db
-            $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
+			// hash submitted password so we can compare it against one in the db
+			$_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
 
-            // search the db for this email and password
-            // retrieve the token if it's available
-            $q = "SELECT token 
-                FROM users 
-                WHERE email = '".$this->user->email."' 
-                AND password = '".$_POST['password']."'";
+			// search the db for this email and password
+			// retrieve the token if it's available
+			$q = "SELECT token 
+				FROM users 
+				WHERE email = '".$this->user->email."' 
+				AND password = '".$_POST['password']."'";
 
-            $token = DB::instance(DB_NAME)->select_field($q);
-            if (!$token) {
-                $error = 'InvalidPassword';
-            }
-            else {
-                // all checks passed, now cleanup the DB from this user
-                // deletes user, their posts, and all connections in users_users
-                $w = 'WHERE user_id = '.$this->user->user_id;
-                DB::instance(DB_NAME)->delete('users', $w);
-            }
-        }
-        if ($error != '') {
-            Router::redirect("/users/unsubscribe/$error");
-        }
-        else {
-            Router::redirect("/");
-        }
-    } 
+			$token = DB::instance(DB_NAME)->select_field($q);
+				if (!$token) {
+					$error = 'InvalidPassword';
+				}
+				
+				else {
+				// all checks passed, now cleanup the DB from this user
+				// deletes user, their posts, and all connections in users_users
+				$w = 'WHERE user_id = '.$this->user->user_id;
+				DB::instance(DB_NAME)->delete('users', $w);
+				}
+				
+				}
+					if ($error != '') {
+						Router::redirect("/users/unsubscribe/$error");
+					}
+					
+					else {
+						Router::redirect("/");
+					}
+	} 
  
 
 } // eoc
