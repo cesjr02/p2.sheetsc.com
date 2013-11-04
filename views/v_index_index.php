@@ -38,6 +38,10 @@
 		 	</li>
 		 	
 		 	<li>
+			 	<span>Delete Post</span>
+		 	</li>
+		 	
+		 	<li>
 			 	<span>Delete Account</span>
 		 	</li>	
 		</ul>
