@@ -31,9 +31,9 @@ class users_controller extends base_controller {
 	process the sign up form    
 -------------------------------------------------------------------------------------------------*/
     
-    public function p_signup() { 
+    public function p_signup() {
     
-		// set up view
+    	// set up view
         $this->template->content = View::instance('v_users_signup');
                 
         // initial error to false
@@ -47,8 +47,8 @@ class users_controller extends base_controller {
 			echo $this->template;
 			return;
         }
-                
-		// otherwise...
+        
+        // otherwise...
         // loop through the POST data
         foreach($_POST as $field_name => $value) {
                         
