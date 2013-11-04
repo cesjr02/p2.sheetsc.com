@@ -33,7 +33,7 @@ class users_controller extends base_controller {
     
     public function p_signup() {
     
-    	// set up view
+    	// setup view
         $this->template->content = View::instance('v_users_signup');
                 
         // initial error to false
