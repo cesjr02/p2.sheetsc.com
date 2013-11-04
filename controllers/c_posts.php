@@ -174,11 +174,13 @@ class posts_controller extends base_controller {
 	confirm delete	
 -------------------------------------------------------------------------------------------------*/
 	
-	public function confirm_delete($post_id) {
+	public function delete($post_id) {
         
         // setup view
-        $this->template->content = View::instance('v_confirm_delete');
+        $this->template->content = View::instance('v_post_delete');
         $this->template->title   = "Confirm Delete";
+        
+
       
 		// render view
         echo $this->template;
@@ -189,11 +191,15 @@ class posts_controller extends base_controller {
 	delete post
 -------------------------------------------------------------------------------------------------*/
 
-	public function delete($post_id) {
+	public function p_delete($post_id) {
+	
+
       
 		// delete this connection
 		$where_condition = 'WHERE post_id = '.$post_id;
 		DB::instance(DB_NAME)->delete('posts', $where_condition);
+		
+			
                      
 		// send them back
 		Router::redirect("/posts");
