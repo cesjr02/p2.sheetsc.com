@@ -9,21 +9,21 @@
 		<form method='POST' action='/users/p_unsubscribe'>
 		
 			Password<span class="error">*</span><br>
-		    <input type='password' name='password' class='field' ><br>
-		    
+			<input type='password' name='password' class='field' ><br>
+
 			Confirm Password<span class="error">*</span><br>
-		    
+
 			<input type='password' name='conf_password' class='field'>
-		    <br>
-		    
-		    	<!-- checks to see if error isset. If so, echo specific error. -->		
+			<br>
+
+				<!-- checks to see if error isset. If so, echo specific error. -->
 				<?php if(isset($error)): ?>
 					<div class='error'>
 						Please enter a valid password.<br>
-		
-					</div>						
-				<?php endif; ?>  
-		    <input type='submit' value ='Unsubscribe' class='button' >
+					</div>
+				<?php endif; ?>
+				
+				<input type='submit' value ='Unsubscribe' class='button' >
 		
 		</form>
 

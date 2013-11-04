@@ -7,7 +7,7 @@
 <? foreach($users as $yapper): ?>
 
 	<!-- you can't unfollow yourself so your button isn't shown -->
-    <?php if ($user->user_id != $yapper['user_id']) : ?>
+	<?php if ($user->user_id != $yapper['user_id']) : ?>
 
 		<!-- print this user's name -->
 		<h3><?=$yapper['first_name']?> <?=$yapper['last_name']?></h3>
