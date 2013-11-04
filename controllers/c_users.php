@@ -16,14 +16,14 @@ class users_controller extends base_controller {
 
     public function signup() {
     
-		// setup view
-		$this->template->content = View::instance('v_users_signup');
-        	
-        // set page title
-		$this->template->title = "Sign up";
-			
-		// render view
-		echo $this->template;
+    	// setup view
+    	$this->template->content = View::instance('v_users_signup');
+    	
+    	// set page title
+    	$this->template->title = "Sign up";
+    	
+    	// render view
+    	echo $this->template;
 
     } 
     
