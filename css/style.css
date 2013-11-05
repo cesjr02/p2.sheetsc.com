@@ -15,8 +15,8 @@ body {
 -------------------------------------------------------------------------------------------------*/
 
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 a, img {
@@ -155,7 +155,6 @@ li {
 .contentMain {
 	width: 540px;
 	float: left;
-	margin-bottom: 50px;
 }
 
 aside {
