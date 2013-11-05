@@ -1,4 +1,4 @@
-<section class='contentFollow'>
+<section class='content'>
 
 <h2>Follow some Yappers</h2>
 
