@@ -147,6 +147,7 @@ li {
 }
 
 .content {
+	height: auto;
 	width: 540px;
 	float: left;
 	margin-bottom: 50px;
