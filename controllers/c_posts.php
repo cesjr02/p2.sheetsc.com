@@ -177,6 +177,7 @@ class posts_controller extends base_controller {
 		
 		// setup view
 		$this->template->content = View::instance('v_post_delete');
+		$this->template->title   = "Confirm Delete";
 		$this->template->content->post_id = $post_id;
 		
 		// render view
